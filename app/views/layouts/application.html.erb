@@ -17,12 +17,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
+  <nav class = "navbar navbar-inverse">
     <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "New Album", new_album_path if current_user %></li>
-        <li><%= link_to "Log In", "/auth/github" unless current_user %></li>
+        <li><%= link_to "Log In", "/auth/spotify" unless current_user %></li>
         <li><%= link_to "Log Out", logout_path, method: :delete if current_user%></li>
+        <p class="navbar-text navbar-right"><%="Signed in as #{@user}" unless current_user%></p>
+        <%= image_tag("spotify.jpeg", height: '50', width: '50') unless current_user %>
     </ul>
   </nav>
 
@@ -30,3 +31,5 @@
 
 </body>
 </html>
+
+

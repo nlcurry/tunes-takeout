@@ -1,7 +1,11 @@
-<h2>What do you want to find?</h2>
+<% if current_user %>
+  <h2>What do you want to find?</h2>
 
-<%= form_tag search_path do %>
-<%= label_tag(:query) %>
-<%= text_field_tag(:query) %>
-<%= submit_tag("Search") %>
-<% end %>
+  <%= form_tag search_path do %>
+  <%= label_tag(:query) %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+  <% end %>
+<% else %>
+  <h2>Please login to start pairing!</h2>
+<%end%>

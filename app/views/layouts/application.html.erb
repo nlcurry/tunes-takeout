@@ -22,11 +22,12 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Log In", "/auth/spotify" unless current_user %></li>
         <li><%= link_to "Log Out", logout_path, method: :delete if current_user%></li>
-        <p class="navbar-text navbar-right"><%="Signed in as #{@user}" if current_user %></p>
+        <p class="navbar-text navbar-right"><%="Signed in as #{@user.name}" if current_user %></p>
         <%= image_tag("spotify.jpeg", height: '50', width: '50') unless current_user %>
+        <%= image_tag(@user.image, height: '50', width: '50') if current_user %>
     </ul>
   </nav>
-
+<%= image_tag(@user.image, height: '50', width: '50') if current_user %>
   <%= yield %>
 
 </body>

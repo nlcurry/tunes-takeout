@@ -25,8 +25,11 @@ class SuggestionsController < ApplicationController
     end
   end
 
-  def favorites
-
+  def myfavorites
+    @my_favorites = TunesTakeoutWrapper.favorites(current_user.uid)["suggestions"]
+    @suggestions = @my_favorites.map {|id| TunesTakeoutWrapper.retrieve(id)["suggestion"]}
+    @food = Food.get_food(@suggestions)
+    @music = Music.get_music(@suggestions)
   end
 
   def favorite

@@ -1,0 +1,9 @@
+
+<% if @food[0] != nil %>
+  <% @food.each_with_index do |f, i| %>
+  <%= render partial: "suggestion", locals: { food: f, music: @music[i], number: (i+1), suggestion: @suggestions[i]} %>
+  <%end%>
+
+<% else %>
+  <h3>No favorites found. You should browse a little!</h3>
+<%end%>

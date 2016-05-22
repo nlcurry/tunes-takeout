@@ -1,0 +1,12 @@
+#Favorite individual food+music pairing suggestions
+
+- be able to log in (spotify)
+  - need to identify the logged in user
+- get suggestions from Charles' API
+  - need suggestion ID
+- gotta be able to send favorite data back to Charles' API
+- gotta be able to display suggestions
+- indicate satus of post-favorite action
+- need interaction in UI to initiate favoriting
+- gotta able to unfavorite
+- what data's needed when user favorites

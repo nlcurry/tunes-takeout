@@ -23,9 +23,7 @@ class TunesTakeoutWrapper
   end
 
   def self.favorite(uid, suggestion_id)
-    response = HTTParty.post(BASE_URL + "v1/users/#{uid}/favorites",
-      :body => { "suggestion": "#{suggestion_id}" }.to_json,
-      :headers => { 'Content-Type' => 'application/json' } )
+    response = HTTParty.post(BASE_URL+"/v1/users/#{uid}/favorites", {:body => { "suggestion": "#{suggestion_id}"}.to_json})
     return response
   end
 

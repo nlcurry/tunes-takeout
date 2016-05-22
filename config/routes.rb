@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post   "/" => "suggestions#index"
   get    "/myfavorites" => "suggestions#myfavorites"
 
-  post   "/" => "suggestions#favorite"
+  post   "/favorite/:suggestion_id" => "suggestions#favorite"
   # delete "/logout" => "sessions#destroy"
   # get    "/login"  => "sessions#new"
 end

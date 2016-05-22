@@ -33,6 +33,11 @@
         <p>Type: <%= music.type.capitalize %></p>
         <iframe src="https://embed.spotify.com/?uri=<%= music.uri %>" width="300" height="80" frameborder="0" allowtransparency="true" class="player"></iframe>
       </td>
+      <td>
+        <% if current_user %>
+          <%= link_to "","/favorite/#{suggestion["id"]}", method: :post, class:" glyphicon glyphicon-thumbs-up" %>
+        <%end%>
+      </td>
     </tr>
   </tbody>
 </table>

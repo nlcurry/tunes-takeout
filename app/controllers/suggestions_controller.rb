@@ -8,12 +8,21 @@ class SuggestionsController < ApplicationController
       @user = User.find(session[:user_id])
     end
 
-    @suggestion_ids = TunesTakeoutWrapper.top_suggestions
-    @suggestions = @suggestion_ids.map {|id| TunesTakeoutWrapper.retrieve(id)["suggestion"]}
+    if params[:query] != nil
+    #for search results
+      @query = params[:query]
+      @suggestions = TunesTakeoutWrapper.search(@query)["suggestions"]
+      @food = Food.get_food(@suggestions)
+      @music = Music.get_music(@suggestions)
+      render :index
 
-    @food = Food.get_food(@suggestions)
-    @music = Music.get_music(@suggestions)
-
+    else
+      #for top suggestions
+      @suggestion_ids = TunesTakeoutWrapper.top_suggestions
+      @suggestions = @suggestion_ids.map {|id| TunesTakeoutWrapper.retrieve(id)["suggestion"]}
+      @food = Food.get_food(@suggestions)
+      @music = Music.get_music(@suggestions)
+    end
   end
 
   def favorites

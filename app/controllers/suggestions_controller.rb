@@ -11,6 +11,9 @@ class SuggestionsController < ApplicationController
     @suggestion_ids = TunesTakeoutWrapper.top_suggestions
     @suggestions = @suggestion_ids.map {|id| TunesTakeoutWrapper.retrieve(id)["suggestion"]}
 
+    @food = Food.get_food(@suggestions)
+    @music = Music.get_music(@suggestions)
+
   end
 
   def favorites

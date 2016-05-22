@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get    "/signin", to: "sessions#new", as: :signin
   post   "/" => "suggestions#index"
   get    "/myfavorites" => "suggestions#myfavorites"
+
+  post   "/" => "suggestions#favorite"
   # delete "/logout" => "sessions#destroy"
   # get    "/login"  => "sessions#new"
 end

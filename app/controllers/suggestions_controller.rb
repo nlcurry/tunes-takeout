@@ -33,16 +33,21 @@ class SuggestionsController < ApplicationController
   end
 
   def favorite
+    response = TunesTakeoutWrapper.favorite(current_user.uid, params[:suggestion_id])
 
+    if response.code == 201
+      @message = "Successfully Added"
+    elsif response.code == 409
+      @message = "Already Favorited"
+    else
+      @message = "Not valid"
+    end
+
+    redirect_to "/myfavorites"
   end
 
   def unfavorite
 
   end
-
-  def show
-
-  end
-
 
 end

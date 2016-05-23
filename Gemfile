@@ -57,6 +57,8 @@ group :development, :test do
   gem 'minitest-reporters'
   gem 'pry-rails'
   gem 'webmock'
+  gem 'simplecov', '~> 0.11.2'
+  gem 'vcr'
 end
 
 group :development do

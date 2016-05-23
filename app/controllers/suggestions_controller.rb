@@ -47,7 +47,9 @@ class SuggestionsController < ApplicationController
   end
 
   def unfavorite
+    response = TunesTakeoutWrapper.unfavorite(current_user.uid, params[:suggestion_id])
 
+    redirect_to "/myfavorites"
   end
 
 end

@@ -34,8 +34,10 @@
         <iframe src="https://embed.spotify.com/?uri=<%= music.uri %>" width="300" height="80" frameborder="0" allowtransparency="true" class="player"></iframe>
       </td>
       <td>
-        <% if current_user %>
+        <% if current_user && !current_page?(controller: "suggestions", action: "myfavorites") %>
           <%= link_to "","/favorite/#{suggestion["id"]}", method: :post, class:" glyphicon glyphicon-thumbs-up" %>
+        <% elsif current_page?(controller: "suggestions", action: "myfavorites") %>
+          <%= link_to "","/unfavorite/#{suggestion["id"]}", method: :delete, class:" glyphicon glyphicon-thumbs-down" %>
         <%end%>
       </td>
     </tr>

@@ -27,4 +27,8 @@ class TunesTakeoutWrapper
     return response
   end
 
+  def self.unfavorite(uid,suggestion_id)
+    response = HTTParty.delete(BASE_URL+"/v1/users/#{uid}/favorites", {:body => { "suggestion": "#{suggestion_id}"}.to_json})
+    return response
+  end
 end
